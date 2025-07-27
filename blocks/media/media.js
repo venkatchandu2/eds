@@ -1,11 +1,18 @@
 export default function decorate(block) {
-  block.classList.add('media-block');
+    const cols = [...block.firstElementChild.children];
+    block.classList.add(`columns-${cols.length}-cols`);
   
-  // Assume the block contains two children: content and image
-  const [content, image] = block.children;
-
-  if (content && image) {
-    content.classList.add('media-content');
-    image.classList.add('media-image');
-  }
+    // setup image columns
+    [...block.children].forEach((row) => {
+      [...row.children].forEach((col) => {
+        const pic = col.querySelector('picture');
+        if (pic) {
+          const picWrapper = pic.closest('div');
+          if (picWrapper && picWrapper.children.length === 1) {
+            // picture is only content in column
+            picWrapper.classList.add('columns-img-col');
+          }
+        }
+      });
+    });
 }
