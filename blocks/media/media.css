@@ -1,0 +1,22 @@
+.media-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .media-content {
+    flex: 1;
+    padding: 16px;
+  }
+  
+  .media-image {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .media-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
