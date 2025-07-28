@@ -2,11 +2,10 @@
     display: flex;
     flex-wrap: nowrap;
     max-width: 900px;
-    /* Removed border and border-radius */
+    margin: 0 auto;          /* center horizontally */
     font-family: Arial, sans-serif;
-  
-    /* Center block horizontally */
-    margin: 0 auto;
+    gap: 40px;               /* <-- gap between columns */
+    align-items: center;     /* vertically center columns */
   }
   
   .media-block__text,
@@ -15,51 +14,40 @@
     box-sizing: border-box;
     padding: 20px;
     display: flex;
-    align-items: center;
-    justify-content: center; /* center content vertically and horizontally */
-    text-align: center;      /* center text */
+    flex-direction: column;  /* stack content vertically inside each column */
+    justify-content: center; /* vertically center content inside each column */
+    text-align: center;      /* center text horizontally */
   }
   
   .media-block__image {
-    padding: 0; /* remove padding to align image flush */
+    padding: 0;
   }
   
   .media-block__img {
-    width: 200px;   /* fixed width */
-    height: 200px;  /* fixed height */
+    width: 200px;
+    height: 200px;
     display: block;
-    object-fit: cover; /* crop image to fit 200x200 */
-    margin: 0 auto; /* center image horizontally */
+    object-fit: cover;
+    margin: 0 auto;          /* center image horizontally */
   }
   
-  /* Size Variants */
-  .media-block--small .media-block__text {
-    font-size: 12px;
-  }
-  .media-block--medium .media-block__text {
-    font-size: 16px;
-  }
-  .media-block--large .media-block__text {
-    font-size: 22px;
-  }
-  
-  /* Responsive */
+  /* Responsive adjustments */
   @media (max-width: 600px) {
     .media-block {
       flex-direction: column;
-      max-width: 100%; /* full width on small */
+      max-width: 100%;
+      gap: 20px;             /* smaller gap on small screens */
     }
     .media-block__text,
     .media-block__image {
       flex: none;
       width: 100%;
       padding: 15px;
-      text-align: center;
-      justify-content: center;
     }
     .media-block__img {
       width: 150px;
       height: 150px;
     }
   }
+
   
